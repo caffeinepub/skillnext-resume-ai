@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Font Faces ─────────────────────────────────────────── */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design Tokens ──────────────────────────────────────── */
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Warm brown/cream/amber palette */
+    --background: 0.955 0.018 76;
+    --foreground: 0.20 0.045 52;
+
+    --card: 0.975 0.012 78;
+    --card-foreground: 0.20 0.045 52;
+
+    --popover: 0.975 0.012 78;
+    --popover-foreground: 0.20 0.045 52;
+
+    /* Rich warm brown primary */
+    --primary: 0.36 0.088 52;
+    --primary-foreground: 0.96 0.016 76;
+
+    /* Soft amber secondary */
+    --secondary: 0.90 0.048 74;
+    --secondary-foreground: 0.30 0.065 52;
+
+    --muted: 0.925 0.026 72;
+    --muted-foreground: 0.50 0.040 60;
+
+    /* Amber accent */
+    --accent: 0.76 0.135 64;
+    --accent-foreground: 0.16 0.045 48;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.86 0.032 70;
+    --input: 0.86 0.032 70;
+    --ring: 0.52 0.085 58;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.94 0.02 70;
+    --sidebar-foreground: 0.22 0.04 55;
+    --sidebar-primary: 0.38 0.085 55;
+    --sidebar-primary-foreground: 0.97 0.012 75;
+    --sidebar-accent: 0.88 0.04 70;
+    --sidebar-accent-foreground: 0.22 0.04 55;
+    --sidebar-border: 0.87 0.03 70;
+    --sidebar-ring: 0.55 0.08 60;
+
+    /* Custom warm tokens */
+    --warm-brown: 0.30 0.095 48;
+    --warm-amber: 0.70 0.155 63;
+    --warm-cream: 0.965 0.022 78;
+    --warm-gold: 0.76 0.145 63;
+    --warm-deep: 0.20 0.075 44;
+    --warm-light: 0.945 0.028 78;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* ─── Steam Animation ───────────────────────────────────── */
+@keyframes steam1 {
+  0%   { transform: translateY(0)    translateX(0)   scaleX(1)   rotate(-2deg); opacity: 0.85; }
+  25%  { transform: translateY(-18px) translateX(6px)  scaleX(1.2) rotate(3deg);  opacity: 0.55; }
+  50%  { transform: translateY(-36px) translateX(-5px) scaleX(0.9) rotate(-4deg); opacity: 0.35; }
+  75%  { transform: translateY(-56px) translateX(4px)  scaleX(1.1) rotate(2deg);  opacity: 0.15; }
+  100% { transform: translateY(-72px) translateX(0)   scaleX(0.7) rotate(0deg);  opacity: 0; }
+}
+
+@keyframes steam2 {
+  0%   { transform: translateY(0)    translateX(0)    scaleX(1)   rotate(3deg);  opacity: 0.75; }
+  25%  { transform: translateY(-22px) translateX(-8px)  scaleX(1.3) rotate(-3deg); opacity: 0.45; }
+  50%  { transform: translateY(-44px) translateX(6px)   scaleX(0.8) rotate(5deg);  opacity: 0.25; }
+  75%  { transform: translateY(-62px) translateX(-4px)  scaleX(1.0) rotate(-2deg); opacity: 0.10; }
+  100% { transform: translateY(-80px) translateX(0)    scaleX(0.6) rotate(0deg);  opacity: 0; }
+}
+
+@keyframes steam3 {
+  0%   { transform: translateY(0)    translateX(0)   scaleX(1)   rotate(-5deg); opacity: 0.65; }
+  25%  { transform: translateY(-16px) translateX(5px)  scaleX(1.4) rotate(4deg);  opacity: 0.40; }
+  50%  { transform: translateY(-38px) translateX(-7px) scaleX(0.85) rotate(-6deg); opacity: 0.22; }
+  75%  { transform: translateY(-60px) translateX(3px)  scaleX(1.1) rotate(3deg);  opacity: 0.08; }
+  100% { transform: translateY(-90px) translateX(0)   scaleX(0.65) rotate(0deg); opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes checkmark {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Global Utilities ──────────────────────────────────── */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.steam-wisp {
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: bottom center;
+  will-change: transform, opacity;
+}
+
+.steam-wisp-1 { animation-name: steam1; animation-duration: 3.2s; animation-delay: 0s; }
+.steam-wisp-2 { animation-name: steam2; animation-duration: 2.8s; animation-delay: 1.1s; }
+.steam-wisp-3 { animation-name: steam3; animation-duration: 3.6s; animation-delay: 2.0s; }
+
+.page-enter {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ─── Skeleton shimmer ───────────────────────────────────── */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    oklch(var(--muted)) 25%,
+    oklch(var(--accent) / 0.3) 50%,
+    oklch(var(--muted)) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ─── Print Styles ───────────────────────────────────────── */
+@media print {
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  body { background: white !important; color: black !important; }
+  .print-receipt {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: monospace;
+  }
+}
+
+.print-only { display: none; }
+
+/* ─── Card hover lift ────────────────────────────────────── */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px oklch(var(--warm-brown) / 0.15);
+}
+
+/* Image scale helpers */
+.group:hover .group-hover\:scale-107 {
+  transform: scale(1.07);
+}
+
+/* ─── Hero text glow ─────────────────────────────────────── */
+.hero-gold-text {
+  background: linear-gradient(
+    135deg,
+    oklch(0.88 0.16 72) 0%,
+    oklch(0.76 0.17 62) 50%,
+    oklch(0.82 0.14 68) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: oklch(var(--muted)); }
+::-webkit-scrollbar-thumb { background: oklch(var(--accent)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: oklch(var(--primary)); }
